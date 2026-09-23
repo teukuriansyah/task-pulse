@@ -1,4 +1,5 @@
 import { View, Text } from 'react-native';
+import { Link } from "expo-router"
 
 interface Props {
   // Define your props here
@@ -7,7 +8,7 @@ interface Props {
 const Index = (props: Props) => {
   return (
     <View>
-      <Text>FirstTab</Text>
+      <Link href="/addTask"> + Task</Link>
     </View>
   );
 };

@@ -1,4 +1,5 @@
 import { View, Text, ScrollView, Pressable } from 'react-native';
+import ProgressCircle  from '@/components/ProgressCircle';
 
 interface Props {
   // Define your props here
@@ -7,13 +8,17 @@ interface Props {
 const Focus = (props: Props) => {
   return (
     <ScrollView className="bg-[#fbf6fb]">
+      <View className="items-center mt-20">
+        <ProgressCircle percentage={100}/>
+      </View>
+
       {/* Button */}
-      <View className="px-5 flex-row justify-between gap-4">
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerClassName="flex-row gap-5 items-center px-5 mt-24">
         <Pressable className="bg-[#f3ecf3] p-4 rounded-lg justify-center h-12"><Text>25 Min</Text></Pressable>
         <Pressable className="bg-[#f3ecf3] p-4 rounded-lg justify-center h-12"><Text>50 Min</Text></Pressable>
         <Pressable className="bg-[#f3ecf3] p-4 rounded-lg justify-center h-12"><Text>Custom (15 Min)</Text></Pressable>
-        <Pressable className="bg-[#f3ecf3] p-4 rounded-lg aspect-square justify-center h-12"><Text>Break (5 Min)</Text></Pressable>
-      </View>
+        <Pressable className="bg-[#f3ecf3] p-4 rounded-lg justify-center h-12"><Text>Break (5 Min)</Text></Pressable>
+      </ScrollView>
       
       <View className="px-5 mt-5">
         <View className="flex-row justify-between">
