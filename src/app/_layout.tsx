@@ -12,7 +12,7 @@ export default function RootLayout() {
       <Tabs.Screen name="focus" options={{ title: "Focus", header: (t: any) => <Navbar title={t.options.title} />, tabBarIcon: ({ color, size }) => <Ionicons name="timer-outline" size={size} color={color} /> }} />
       <Tabs.Screen name="stats" options={{ title: "Stats", header: (t: any) => <Navbar title={t.options.title} />, tabBarIcon: ({ color, size }) => <Ionicons name="stats-chart-outline" size={size} color={color} /> }} />
       <Tabs.Screen name="settings" options={{ title: "Settings", header: (t: any) => <Navbar title={t.options.title} />, tabBarIcon: ({ color, size }) => <Ionicons name="settings-outline" size={size} color={color} /> }} />
-      <Tabs.Screen name="addTask" options={{ href: null, tabBarStyle: { display: "none" }, header: (t: any) => <NavbarCreatetask/> }} />
+      <Tabs.Screen name="createTask" options={{ href: null, tabBarStyle: { display: "none" }, header: (t: any) => <NavbarCreatetask/> }} />
     </Tabs>
   );
 }

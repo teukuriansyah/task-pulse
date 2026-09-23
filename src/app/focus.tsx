@@ -1,5 +1,7 @@
 import { View, Text, ScrollView, Pressable } from 'react-native';
 import ProgressCircle  from '@/components/ProgressCircle';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 interface Props {
   // Define your props here
@@ -22,9 +24,9 @@ const Focus = (props: Props) => {
       
       <View className="px-5 mt-5">
         <View className="flex-row justify-between">
-          <Pressable className="bg-[#f3ecf3] p-4 rounded-full aspect-square justify-center h-16"><Text className="font-bold text-2xl">Pause</Text></Pressable>
-          <Pressable className="bg-[#6a51a8] flex-row justify-center p-4 rounded-full w-52 h-16 items-center gap-4"><Text className="text-white font-bold text-2xl">Pause</Text></Pressable>
-          <Pressable className="bg-[#f3ecf3] p-4 rounded-full aspect-square justify-center h-16"><Text className="font-bold text-2xl">Pause</Text></Pressable>
+          <Pressable className="bg-[#f3ecf3] p-4 rounded-full aspect-square justify-center items-center h-16"><Ionicons name="refresh" size={28} color="black" /></Pressable>
+          <Pressable className="bg-[#6a51a8] flex-row justify-center p-4 rounded-full w-52 h-16 items-center gap-4"><Ionicons name="pause" size={28} color="white" /><Text className="text-white font-bold text-2xl">Pause</Text></Pressable>
+          <Pressable className="bg-[#f3ecf3] p-4 rounded-full aspect-square justify-center items-center h-16"><Ionicons name="checkmark" size={28} color="black" /></Pressable>
         </View>
       </View>
     </ScrollView>

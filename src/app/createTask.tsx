@@ -1,5 +1,6 @@
 import { View, Text, TextInput, ScrollView, Pressable } from 'react-native';
 import { useState } from 'react';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 interface Props {
   // Define your props here
