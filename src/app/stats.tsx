@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native';
 
+
 interface Props {
   // Define your props here
 }
 
-const Index = (props: Props) => {
+const Stats = (props: Props) => {
   return (
     <View>
       <Text>FirstTab</Text>
@@ -12,4 +13,4 @@ const Index = (props: Props) => {
   );
 };
 
-export default Index;
+export default Stats;

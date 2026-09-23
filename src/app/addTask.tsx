@@ -4,7 +4,7 @@ interface Props {
   // Define your props here
 }
 
-const Index = (props: Props) => {
+const AddTask = (props: Props) => {
   return (
     <View>
       <Text>FirstTab</Text>
@@ -12,4 +12,4 @@ const Index = (props: Props) => {
   );
 };
 
-export default Index;
+export default AddTask;
