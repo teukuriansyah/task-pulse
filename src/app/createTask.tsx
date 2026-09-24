@@ -1,13 +1,12 @@
 import { View, Text, TextInput, ScrollView, Pressable } from 'react-native';
 import { useState } from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import RNDateTimePicker from "@react-native-community/datetimepicker"
 
-interface Props {
-  // Define your props here
-}
-
-const AddTask = (props: Props) => {
+const AddTask = () => {
   const [title, onChangeTitle] = useState('Useless Text');
+  const [context, onChangeContext] = useState('Useless Textx');
+  const [date, onChangeDate] = useState<any>(new Date());
+  const [time, onChangeTime] = useState<any>(new Date());
   return (
     <View>
       {/* Input */}
@@ -19,7 +18,7 @@ const AddTask = (props: Props) => {
           </View>
           <View className="gap-1">
             <Text className="text-[#494551]">Context & Execution Notes</Text>
-            <TextInput onChangeText={onChangeTitle} value={title} className="rounded-lg bg-[#f3ecf3] px-3"/>
+            <TextInput onChangeText={onChangeContext} value={context} className="rounded-lg bg-[#f3ecf3] px-3 h-40" multiline textAlignVertical="top"/>
           </View>
         </View>
       </View>
@@ -31,6 +30,11 @@ const AddTask = (props: Props) => {
           <Pressable className="bg-white rounded-lg px-5 py-3"><Text className="font-bold">Study</Text></Pressable>
           <Pressable className="bg-white rounded-lg px-5 py-3"><Text className="font-bold">Personal</Text></Pressable>
         </ScrollView>
+      </View>
+
+      <View className='px-5 py-2'>
+        <RNDateTimePicker value={date} onValueChange={(event, dates) => onChangeDate(dates)}/>
+        <RNDateTimePicker value={time} mode="time" onValueChange={(event, times) => onChangeTime(times)}/>
       </View>
       
       {/* Button Submit */}

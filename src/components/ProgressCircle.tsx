@@ -4,6 +4,7 @@ export default function ProgressCircle({
   percentage,
   size = 220,
   strokeWidth = 20,
+  time
 }:any) {
   const progress = Math.min(Math.max(percentage, 0), 100);
 
@@ -53,8 +54,8 @@ export default function ProgressCircle({
       })}
 
       {/* Text */}
-      <Text className="text-4xl font-bold text-[#6a51a8]">
-        {progress}%
+      <Text className="text-2xl font-bold text-[#6a51a8]">
+        {time}
       </Text>
     </View>
   );
