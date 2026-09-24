@@ -1,53 +1,64 @@
-import { View, Text, TextInput } from 'react-native';
-import { useState } from "react"
-import Ionicons from '@expo/vector-icons/Ionicons';
-import List from "../components/List"
+import { View, Text, ScrollView, TextInput } from 'react-native';
+import { Link } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import List from "../components/List";
 
-interface Props {
-  // Define your props here
-}
-
-const Tasks = (props: Props) => {
-  const [search, onChangeSearch] = useState('Useless Text');
+const Tasks = ({ onChangeSearch, search }) => {
   return (
-    <View className="bg-[#fbf6fb]">
-      {/* Search */}
-      <View className="px-5 py-2">
-        <View className="bg-[#f3ecf3] rounded-full flex-row items-center px-3">
-          <Ionicons name="search" size={20} color="#6a51a8" />
-          <TextInput onChangeText={onChangeSearch} value={search}  className="w-full"/>
-        </View>
-      </View>
-      
-      {/* Due date */}
-      <View className="px-5 py-2">
-        <View className="gap-1">
-          <Text className="font-bold text-xl">Due Today</Text>
-          <View>
-            <List />
+    <View className="flex-1 relative bg-[#fbf6fb]">
+      <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 100 }}>
+        
+        {/* Search */}
+        <View className="px-5 py-2">
+          <View className="bg-[#f3ecf3] rounded-full flex-row items-center px-3 py-1">
+            <Ionicons name="search" size={20} color="#6a51a8" />
+            <TextInput 
+              onChangeText={onChangeSearch} 
+              value={search}  
+              className="w-full ml-2 text-base"
+              placeholder="Search tasks..."
+            />
           </View>
         </View>
-      </View>
-      
-      {/* Upcoming */}
-      <View className="px-5 py-2">
-        <View className="gap-1">
-          <Text className="font-bold text-xl">Upcoming</Text>
-          <View>
-            <List />
+        
+        {/* Due date */}
+        <View className="px-5 py-2">
+          <View className="gap-1">
+            <Text className="font-bold text-xl">Due Today</Text>
+            <View>
+              <List />
+            </View>
           </View>
         </View>
-      </View>
-      
-      {/* Completed */}
-      <View className="px-5 py-2">
-        <View className="gap-1">
-          <Text className="font-bold text-xl">Completed</Text>
-          <View>
-            <List />
+        
+        {/* Upcoming */}
+        <View className="px-5 py-2">
+          <View className="gap-1">
+            <Text className="font-bold text-xl">Upcoming</Text>
+            <View>
+              <List />
+            </View>
           </View>
         </View>
+        
+        {/* Completed */}
+        <View className="px-5 py-2">
+          <View className="gap-1">
+            <Text className="font-bold text-xl">Completed</Text>
+            <View>
+              <List />
+            </View>
+          </View>
+        </View>
+
+      </ScrollView>
+      
+      <View className="absolute bottom-5 right-5 rounded-xl bg-[#4F378A] p-5 w-28 shadow-lg items-center">
+        <Link href="/createTask">
+          <Text className="text-white font-bold text-xl">+ Task</Text>
+        </Link>
       </View>
+
     </View>
   );
 };
