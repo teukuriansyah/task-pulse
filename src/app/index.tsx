@@ -1,12 +1,20 @@
 import { View, Text, ScrollView } from 'react-native';
 import { Link } from "expo-router";
+import { useState, useEffect } from "react"
+import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import List from "../components/List";
 
-interface Props {
-  // Define your props here
-}
+const Index = () => {
+  const [datas,setDatas] = useState()
+  
+  const fetchingData = () => {
+    const data = localStorage.getData()
+    setDatas(data == "No Data" ? [] : data)
+  }
 
-const Index = (props: Props) => {
+  useEffect(() => {
+    fetchingData()
+  },[])
   return (
     <View className="flex-1 relative bg-[#fbf6fb]">
       <ScrollView className="flex-1 mb-16">

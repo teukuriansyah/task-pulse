@@ -1,18 +1,40 @@
 import { View, Text, TextInput, ScrollView, Pressable } from 'react-native';
+import { useState, useEffect } from 'react';
+import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useState } from 'react';
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 
 const AddTask = () => {
-  const [title, onChangeTitle] = useState('Useless Text');
-  const [context, onChangeContext] = useState('Useless Textx');
+  const [datas,setDatas] = useState()
+  const [title, onChangeTitle] = useState('');
+  const [context, onChangeContext] = useState('');
   const [showTime, setShowTime] = useState(false);
   const [showDate, setShowDate] = useState(false);
   const [date, onChangeDate] = useState<any>(new Date());
   const [time, onChangeTime] = useState<any>(new Date());
-  const [selectedDate, setSelectedDate] = useState<string>();
-  const [selectedTime, setSelectedTime] = useState<string>();
+  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
 
+  const submitData = () => {
+    if(title !== "" && selectedDate !== "" && selectedTime !== "") {
+      datas.push({title,context,selectedDate,selectedTime,check:false})
+      localStorage.postData(JSON.stringify(datas))
+      onChangeTitle("")
+      onChangeContext("")
+      setSelectedDate("")
+      setSelectedTime("")
+    }
+  }
+
+  const fetchingData = () => {
+    const data = localStorage.getData()
+    setDatas(data == "No Data" ? [] : data)
+  }
+
+  useEffect(() => {
+    fetchingData()
+  },[])
+  
   return (
     <View>
       {/* Input */}
@@ -131,7 +153,7 @@ const AddTask = () => {
 
       {/* Button Submit */}
       <View className="px-5 mt-7">
-        <Pressable className="bg-[#6a51a8] rounded-3xl p-5 items-center">
+        <Pressable className="bg-[#6a51a8] rounded-3xl p-5 items-center" onPress={() => submitData()}>
           <Text className="text-white font-bold text-xl">Create Task</Text>
         </Pressable>
       </View>
