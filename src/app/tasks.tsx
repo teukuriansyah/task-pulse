@@ -6,7 +6,7 @@ import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import List from "../components/List";
 
 const Tasks = () => {
-  const [datas,setDatas] = useState()
+  const [datas,setDatas] = useState<any>()
   
   const fetchingData = () => {
     const data = localStorage.getData()
@@ -24,7 +24,7 @@ const Tasks = () => {
         <View className="px-5 py-2">
           <View className="bg-[#f3ecf3] rounded-full flex-row items-center px-3 py-1">
             <Ionicons name="search" size={20} color="#6a51a8" />
-            <TextInput className="w-full ml-2 text-base" placeholder="Search tasks..." />
+            <TextInput className="w-full ml-2 text-base text-[#494551]" placeholder="Search tasks..." />
           </View>
         </View>
         

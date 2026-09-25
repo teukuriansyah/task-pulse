@@ -23,7 +23,7 @@ const Focus = () => {
   };
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
+    let interval = null;
 
     if (isPlay) {
       interval = setInterval(() => {

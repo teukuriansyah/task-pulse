@@ -5,7 +5,7 @@ import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import List from "../components/List";
 
 const Index = () => {
-  const [datas,setDatas] = useState()
+  const [datas,setDatas] = useState<any>()
   
   const fetchingData = () => {
     const data = localStorage.getData()
@@ -45,7 +45,7 @@ const Index = () => {
           <View className="gap-1">
             <Text className="font-bold text-3xl">Today's Task</Text>
             <View>
-              <List />
+            {datas.map((d:any) => <List />)}
             </View>
           </View>
         </View>

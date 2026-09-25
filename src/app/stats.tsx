@@ -1,11 +1,6 @@
 import { View, Text } from 'react-native';
 
-
-interface Props {
-  // Define your props here
-}
-
-const Stats = (props: Props) => {
+const Stats = () => {
   return (
     <View>
       <Text>FirstTab</Text>

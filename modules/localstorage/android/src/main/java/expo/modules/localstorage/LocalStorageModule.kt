@@ -1,5 +1,6 @@
 package expo.modules.localstorage
 
+import android.content.Context
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 
@@ -7,21 +8,22 @@ class LocalStorageModule : Module() {
   override fun definition() = ModuleDefinition {
     Name("LocalStorage")
 
-    Function("getData"){
-      val sharedPref = context.getPreferences(Context.MODE_PRIVATE)
+    val context = appContext.reactContext
 
-      val datas = sharedPref.getString("data","No Data")
+    Function("getData") {
+      val sharedPref = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+      val datas = sharedPref?.getString("data", "No Data") ?: "No Data"
 
       return@Function datas
     }
-    
-    Function("postData"){ payload:String ->
-      val sharedPref = context.getPreferences(Context.MODE_PRIVATE)
 
-      val editor = sharedPref.editor()
+    Function("postData") { payload: String ->
+      val sharedPref = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
-      editor.putString("data",payload)
-      editor.apply()
+      sharedPref?.edit()?.apply {
+        putString("data", payload)
+        apply()
+      }
 
       return@Function "Success"
     }
