@@ -1,11 +1,7 @@
 import { View, Text, ScrollView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-interface Props {
-  // Define your props here
-}
-
-const Settings = (props: Props) => {
+const Settings = () => {
   return (
     <ScrollView className="bg-[#fbf6fb]">
       <View className="px-5 gap-2">

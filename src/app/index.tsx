@@ -1,20 +1,21 @@
 import { View, Text, ScrollView } from 'react-native';
 import { Link } from "expo-router";
 import { useState, useEffect } from "react"
-import localStorage from "../../modules/localstorage/src/LocalStorageModule"
+// import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import List from "../components/List";
 
 const Index = () => {
-  const [datas,setDatas] = useState<any>()
+  const [datas,setDatas] = useState<any>([1,2])
+  const [check, setCheck] = useState(false)
   
-  const fetchingData = () => {
-    const data = localStorage.getData()
-    setDatas(data == "No Data" ? [] : data)
-  }
+  // const fetchingData = () => {
+  //   const data = localStorage.getData()
+  //   setDatas(data == "No Data" ? [] : data)
+  // }
 
-  useEffect(() => {
-    fetchingData()
-  },[])
+  // useEffect(() => {
+  //   fetchingData()
+  // },[])
   return (
     <View className="flex-1 relative bg-[#fbf6fb]">
       <ScrollView className="flex-1 mb-16">
@@ -44,8 +45,8 @@ const Index = () => {
         <View className="px-5 py-2">
           <View className="gap-1">
             <Text className="font-bold text-3xl">Today's Task</Text>
-            <View>
-            {datas.map((d:any) => <List />)}
+            <View className="gap-4">
+            {datas.map((d:any,i:any) => <List key={i} check={false}/>)}
             </View>
           </View>
         </View>

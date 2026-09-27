@@ -1,6 +1,6 @@
 import { View, Text, TextInput, ScrollView, Pressable } from 'react-native';
 import { useState, useEffect } from 'react';
-import localStorage from "../../modules/localstorage/src/LocalStorageModule"
+// import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import Ionicons from '@expo/vector-icons/Ionicons';
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 
@@ -16,24 +16,24 @@ const AddTask = () => {
   const [selectedTime, setSelectedTime] = useState<string>("");
 
   const submitData = () => {
-    if(title !== "" && selectedDate !== "" && selectedTime !== "") {
-      datas.push({title,context,selectedDate,selectedTime,check:false})
-      localStorage.postData(JSON.stringify(datas))
-      onChangeTitle("")
-      onChangeContext("")
-      setSelectedDate("")
-      setSelectedTime("")
-    }
+    // if(title !== "" && selectedDate !== "" && selectedTime !== "") {
+    //   datas.push({title,context,selectedDate,selectedTime,check:false})
+    //   localStorage.postData(JSON.stringify(datas))
+    //   onChangeTitle("")
+    //   onChangeContext("")
+    //   setSelectedDate("")
+    //   setSelectedTime("")
+    // }
   }
 
-  const fetchingData = () => {
-    const data = localStorage.getData()
-    setDatas(data == "No Data" ? [] : data)
-  }
+  // const fetchingData = () => {
+  //   const data = localStorage.getData()
+  //   setDatas(data == "No Data" ? [] : data)
+  // }
 
-  useEffect(() => {
-    fetchingData()
-  },[])
+  // useEffect(() => {
+  //   fetchingData()
+  // },[])
   
   return (
     <View>

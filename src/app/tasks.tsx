@@ -2,20 +2,20 @@ import { View, Text, ScrollView, TextInput } from 'react-native';
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from "react"
-import localStorage from "../../modules/localstorage/src/LocalStorageModule"
+// import localStorage from "../../modules/localstorage/src/LocalStorageModule"
 import List from "../components/List";
 
 const Tasks = () => {
   const [datas,setDatas] = useState<any>()
   
-  const fetchingData = () => {
-    const data = localStorage.getData()
-    setDatas(data == "No Data" ? [] : data)
-  }
+  // const fetchingData = () => {
+  //   const data = localStorage.getData()
+  //   setDatas(data == "No Data" ? [] : data)
+  // }
 
-  useEffect(() => {
-    fetchingData()
-  },[])
+  // useEffect(() => {
+  //   fetchingData()
+  // },[])
   return (
     <View className="flex-1 relative bg-[#fbf6fb]">
       <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 100 }}>

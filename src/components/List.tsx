@@ -1,39 +1,51 @@
 import { View, Text } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Checkbox from "./Checkbox"
 
 interface Props {
-  // Define your props here
+  check:boolean;
+  press:void
 }
+
+
 
 const List = (props: Props) => {
   return (
-    <View className="px-5 py-2 rounded-lg bg-[#f3ecf3]">
+    <View className={`flex-row items-center gap-3 rounded-lg ${props.check ? "bg-[#9a9a9a]" : "bg-[#f3ecf3]"} px-5 py-2`}>
       <View>
-        <Text className="font-bold text-lg">FirstTab</Text>
-        <Text className="text-sm">FirstTab</Text>
+        <Checkbox press={props.press} isCheck={props.check}/>
       </View>
-      <View className="flex-row gap-3 py-1 items-center">
-        <View className="bg-green-600 py-[2px] px-2 rounded-full">
-          <Text className="text-green-400 text-[10px]">Work</Text>
+
+      <View className="flex-1">
+        <View>
+          <Text className={`text-lg font-bold ${props.check ? "line-through text-[#494551]" : ""}`}>FirstTab</Text>
+          <Text className={`text-sm ${props.check ? "text-[#494551] line-through" : ""}`}>FirstTab</Text>
         </View>
-        
-        <View className="flex-row items-center gap-2">
-          <View className="flex-row items-center gap-1">
-            <Ionicons name="alarm-outline" size={16} color="#dc2626" />
-            <Text className="text-red-600 text-sm font-medium">02:00</Text>
+
+        <View className="flex-row items-center gap-3 py-1">
+          <View className={`rounded-full ${ props.check ? "" : "bg-green-600"} px-2 py-[2px]`}>
+            <Text className={`text-[10px] ${ props.check ? "text-[#494551]" : "text-green-400"}`}>Work</Text>
           </View>
 
-          {/* Pemisah visual opsional */}
-          <Text className="text-gray-400 text-xs">•</Text>
-          
-          <View className="flex-row items-center gap-1">
-            <Ionicons name="calendar-outline" size={16} color="#4b5563" />
-            <Text className="text-gray-600 text-sm">24 Sep</Text>
+          <View className="flex-row items-center gap-2">
+            <View className="flex-row items-center gap-1">
+              <Ionicons name="alarm-outline" size={16} color={`${props.check ? "#494551" : "#dc2626"}`} />
+              <Text className={`text-sm font-medium ${props.check ? "text-[#494551]" : "text-red-600"}`}>02:00</Text>
+            </View>
+
+            {/* Pemisah visual opsional */}
+            <Text className="text-xs text-gray-400">•</Text>
+
+            <View className="flex-row items-center gap-1">
+              <Ionicons name="calendar-outline" size={16} color="#4b5563" />
+              <Text className="text-sm text-gray-600">24 Sep</Text>
+            </View>
           </View>
         </View>
       </View>
     </View>
   );
 };
+
 
 export default List;
