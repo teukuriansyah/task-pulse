@@ -10,8 +10,8 @@ const Settings = () => {
             <Ionicons name="person-outline" size={16} color="white" />
           </View>
           <View>
-            <Text className="text-lg font-bold">Nama</Text>
-            <Text className="text-sm">email@email.com</Text>
+            <Text className="text-lg font-bold">Code Number 9</Text>
+            <Text className="text-sm">number9@code.com</Text>
           </View>
         </View>
       </View>

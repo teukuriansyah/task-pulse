@@ -1,7 +1,7 @@
 import { View, Text, TextInput, ScrollView, Pressable, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'expo-router';
-//import localStorage from "../../modules/localstorage/src/LocalStorageModule";
+import localStorage from "../../modules/localstorage/src/LocalStorageModule";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 
@@ -18,39 +18,39 @@ const AddTask = () => {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
 
-  // const fetchingData = () => {
-  //   const data = localStorage.getData();
-  //   setDatas(data == "No Data" ? [] : JSON.parse(data));
-  // };
+  const fetchingData = () => {
+    const data = localStorage.getData();
+    setDatas(data == "No Data" ? [] : JSON.parse(data));
+  };
 
-  // useEffect(() => {
-  //   fetchingData();
-  // }, []);
+  useEffect(() => {
+    fetchingData();
+  }, []);
 
   const submitData = () => {
-    // if (!title.trim() || !selectedDate || !selectedTime) {
-    //   Alert.alert("Peringatan", "Mohon isi Judul, Tanggal, dan Waktu tugas!");
-    //   return;
-    // }
+    if (!title.trim() || !selectedDate || !selectedTime) {
+      Alert.alert("Peringatan", "Mohon isi Judul, Tanggal, dan Waktu tugas!");
+      return;
+    }
 
-    // const newTask = {
-    //   id: Date.now(),
-    //   title,
-    //   context,
-    //   category,
-    //   selectedDate,
-    //   selectedTime,
-    //   check: false
-    // };
+    const newTask = {
+      id: Date.now(),
+      title,
+      context,
+      category,
+      selectedDate,
+      selectedTime,
+      check: false
+    };
     
-    // const updatedDatas = [...datas, newTask];
-    // localStorage.postData(JSON.stringify(updatedDatas));
+    const updatedDatas = [...datas, newTask];
+    localStorage.postData(JSON.stringify(updatedDatas));
 
-    // onChangeTitle("");
-    // onChangeContext("");
-    // setSelectedDate("");
-    // setSelectedTime("");
-    // router.back();
+    onChangeTitle("");
+    onChangeContext("");
+    setSelectedDate("");
+    setSelectedTime("");
+    router.back();
   };
 
   return (
