@@ -6,12 +6,12 @@ import List from "../components/List";
 
 const Index = () => {
   const [datas, setDatas] = useState<any[]>([]);
-  const [dataTaskToday,setDataTaskToday] = useState<any>()
+  const [dataTaskToday,setDataTaskToday] = useState<any>([])
 
   const fetchingData = () => {
     const rawData = localStorage?.getData?.();
 
-    if (!rawData || rawData === 'No data') {
+    if (!rawData || rawData === 'No Data') {
       setDataTaskToday([]);
       setDatas([]);
       return;
@@ -66,7 +66,7 @@ const Index = () => {
                 const selectedDate = new Date(Number(year), Number(month) - 1, Number(day));
                 const today = new Date();
                 if(today.toDateString() == selectedDate.toDateString()) {
-                  return <List press={() => updateCheck(i)} key={i} title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} check={d.check}/>
+                  return <List category={d.category} press={() => updateCheck(i)} key={i} title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} check={d.check}/>
                 }
               })}
             </View>

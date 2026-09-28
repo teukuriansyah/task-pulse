@@ -44,7 +44,7 @@ const Tasks = () => {
                 const selectedDate = new Date(Number(year), Number(month) - 1, Number(day));
                 const today = new Date();
                 if(today.toDateString() == selectedDate.toDateString() && !d.check) {
-                  return <List key={i} press={() => updateCheck(i)} check={d.check} title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} />
+                  return <List category={d.category} key={i} press={() => updateCheck(i)} check={d.check} title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} />
                 }
               })}
             </View>
@@ -62,7 +62,7 @@ const Tasks = () => {
                 const [day, month, year] = d.selectedDate.split('/');
                 const selectedDate = new Date(Number(year), Number(month) - 1, Number(day));
                 if(selectedDate > today && !d.check) {
-                  return <List key={i} check={d.check} press={() => updateCheck(i)} title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} />
+                  return <List category={d.category} key={i} check={d.check} press={() => updateCheck(i)} title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} />
                 }
               })}
             </View>
@@ -76,7 +76,7 @@ const Tasks = () => {
             <View className="gap-2">
               {datas?.map((d:any,i:any) => {
                 if(d.check) {
-                  return <List key={i} press="" title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} check={d.check}/>
+                  return <List category={d.category} key={i} press="" title={d.title} time={d.selectedTime} date={d.selectedDate} context={d.context} check={d.check}/>
                 }
               })}
             </View>

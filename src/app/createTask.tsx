@@ -20,7 +20,7 @@ const AddTask = () => {
 
   const fetchingData = () => {
     const data = localStorage.getData();
-    setDatas(data == "No data" ? [] : JSON.parse(data));
+    setDatas(data == "No Data" ? [] : JSON.parse(data));
   };
 
   useEffect(() => {

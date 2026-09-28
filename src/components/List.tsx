@@ -9,6 +9,7 @@ interface Props {
   time:string;
   date:string;
   press: any; 
+  category:string
 }
 
 const List = (props: Props) => (
@@ -19,7 +20,7 @@ const List = (props: Props) => (
       <Text className={`text-sm ${props.check ? "text-[#494551] line-through" : ""}`}>{props.context || "FirstTab"}</Text>
       <View className="flex-row items-center gap-3 py-1">
         <View className={`rounded-full ${props.check ? "" : "bg-green-600"} px-2 py-[2px]`}>
-          <Text className={`text-[10px] ${props.check ? "text-[#494551]" : "text-green-400"}`}>Work</Text>
+          <Text className={`text-[10px] ${props.check ? "text-[#494551]" : "text-green-400"}`}>{props.category}</Text>
         </View>
         <View className="flex-row items-center gap-2">
           <View className="flex-row items-center gap-1">
