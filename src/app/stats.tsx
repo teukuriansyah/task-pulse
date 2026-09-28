@@ -6,16 +6,19 @@ import DonutChart from '@/components/DonutChart';
 const Stats = () => {
   const [datas,setDatas] = useState<any>([])
 
-  const fetching = () => {
-    const data = LocalStorageModule.getData()
-    const personal = JSON.parse(data).filter(d => d.category == "Personal").length
-    const work = JSON.parse(data).filter(d => d.category == "Work").length
-    const study = JSON.parse(data).filter(d => d.category == "Study").length
-    setDatas(data == "No Data" ? [] : JSON.parse(data)) 
+  const fetchingData = () => {
+    const fetching = LocalStorageModule.getData()
+    const personal = JSON.parse(fetching).filter((d:any) => d.category == "Personal").length
+    const work = JSON.parse(fetching).filter((d:any) => d.category == "Work").length
+    const study = JSON.parse(fetching).filter((d:any) => d.category == "Study").length
+
+    const data = [{label:"Personal",value:personal,color:"#4F378A"},{label:"Work",value:work,color:"#0b3a65"},{label:"Study",value:study,color:"#4d0404"}]
+
+    setDatas(data)
   }
 
   useEffect(() => {
-    fetching()
+    fetchingData()
   },[])
   return (
     <ScrollView className='bg-[#fbf6fb]'>

@@ -79,13 +79,13 @@ const DonutChart: React.FC<DonutChartProps> = ({
       </View>
 
       {/* Legend / Keterangan 3 Variabel */}
-      <View className="mt-6 w-full max-w-xs space-y-3">
+      <View className="mt-6 w-full max-w-xs space-y-3 gap-2">
         {data.map((item) => (
           <View
             key={item.key}
             className="flex-row items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-100"
           >
-            <View className="flex-row items-center space-x-3">
+            <View className="flex-row items-center space-x-3 gap-2">
               <View
                 className="w-3.5 h-3.5 rounded-full"
                 style={{ backgroundColor: item.color }}
